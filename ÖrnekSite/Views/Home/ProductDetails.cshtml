@@ -1,0 +1,64 @@
+﻿@using ÖrnekSite.Entity
+@model Product
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Category")
+                <li style="border:0"> &nbsp;</li>
+                <li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+            </ul>
+        </div>
+
+     
+        @Html.Action("_FeaturedProductList", "Home")
+
+    </div>
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="/Home/Index">AnaSayfa</a> <span class="divider">/</span></li>
+            <li><a href="/Home/Product">Ürünler</a> <span class="divider">/</span></li>
+            <li class="active">Ürün Detay</li>
+        </ul>
+        <div class="well well-small">
+            <div class="row-fluid">
+                <div class="span5">
+                    <div id="myCarousel" class="carousel slide cntr">
+                        
+                            <div class="item">
+                                <a href="#"> <img src="~/Content/image/@Model.Image"  alt="" style="width:100%"></a>
+                            </div>
+                           
+                    
+                       
+                    </div>
+                </div>
+                <div class="span7">
+                    <h3>@Model.Name</h3>
+                    <hr class="soft">
+
+                    <form class="form-horizontal qtyFrm">
+                        <div class="control-group">
+                            <label class="control-label"><span>@Model.Price ₺</span></label>
+                            <div class="controls">
+                                <input type="number" class="span6" placeholder="ADET">
+                            </div>
+                        </div>
+
+                        <h4>STOK SAYISI : @Model.Stock</h4>
+                        <p>
+                           @Model.Description
+                        </p><p>
+                            <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Sepete Ekle</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <hr class="softn clr">
+
+
+
+        </div>
+    </div>
+</div>
